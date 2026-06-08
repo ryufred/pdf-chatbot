@@ -116,7 +116,7 @@ if prompt:
         with st.spinner("문서를 검색 중..."):
             try:
                 genai.configure(api_key=api_key)
-                model = genai.GenerativeModel("gemini-1.5-flash")  # 무료 티어 모델
+                model = genai.GenerativeModel("gemini-2.0-flash")  # 무료 티어 모델
 
                 system_prompt = """당신은 업로드된 PDF 문서 전문가입니다.
 사용자의 질문에 반드시 아래 JSON 형식으로만 답변하세요 (마크다운 코드블록 없이 순수 JSON):
