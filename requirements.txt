@@ -1,0 +1,10 @@
+streamlit
+pymupdf
+pytesseract
+pillow
+sentence-transformers
+supabase
+groq
+python-dotenv
+tqdm
+torchvision
