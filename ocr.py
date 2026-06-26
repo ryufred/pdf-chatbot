@@ -25,7 +25,7 @@ def extract_text_from_pdf(pdf_path):
             pix = page.get_pixmap(dpi=300)
             img_data = pix.tobytes("png")
             img = Image.open(io.BytesIO(img_data))
-            text = pytesseract.image_to_string(img, lang="kor+eng")
+            text = pytesseract.image_to_string(img, lang="kor+eng", config="--psm 6 --oem 3")
         
         full_text += f"\n[페이지 {page_num + 1}]\n{text}"
     
