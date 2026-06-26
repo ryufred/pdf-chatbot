@@ -14,7 +14,11 @@ def extract_text_from_pdf(pdf_path):
         page = doc[page_num]
         
         # 1. 일반 텍스트 먼저 시도
-        text = page.get_text()
+        text = page.get_text("blocks")  # "blocks"로 바꾸면 블록 단위로 순서대로 읽음
+
+        # blocks는 튜플 리스트로 나오니까 텍스트만 추출
+        if isinstance(text, list):
+            text = "\n".join([b[4] for b in sorted(text, key=lambda b: (b[1], b[0])) if isinstance(b[4], str)])
         
         # 2. 텍스트가 거의 없으면 OCR로 처리 (이미지 PDF)
         if len(text.strip()) < 50:
